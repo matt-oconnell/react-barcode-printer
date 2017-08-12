@@ -2,6 +2,21 @@ body {
   margin: 0;
 }
 
+.barcode-printer {
+  font-family: monospace;
+  /* display: none; */
+}
+
+@media print {
+  /* .barcode-printer {
+    display: block;
+  } */
+
+  .no-print {
+    display: none;
+  }
+}
+
 .barcode-printer .barcode-info {
   width: 100%;
 }

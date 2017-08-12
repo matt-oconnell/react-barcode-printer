@@ -6,7 +6,7 @@ import './BarcodePrinter.css';
 const labelSizes = {
   '201': {
     width: '4.5in',
-    height: 50,
+    height: 47,
   },
   '203': {
     width: '2.5in',
@@ -32,7 +32,13 @@ class BarcodePrinter extends Component {
           <span>{this.props.name}</span>
           <span>{this.props.price}</span>
         </div>
-        <Barcode svgStyles={svgStyle} value={this.props.sku} height={labelSizes[this.props.labelSizeId].height} margin={0} />
+        <Barcode
+          svgStyles={svgStyle}
+          value={this.props.sku}
+          height={labelSizes[this.props.labelSizeId].height}
+          margin={0}
+          fontSize={12}
+        />
       </div>
     );
   }

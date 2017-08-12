@@ -1,5 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import BarcodePrinter from './BarcodePrinter';
 
-ReactDOM.render(<BarcodePrinter sku='fake-hello' labelSizeId='203' name='Red Shirt' price='99.99'/>, document.getElementById('root'));
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      labelSizeId: '201',
+    }
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+
+  handleSelect(event) {
+    this.setState({
+      labelSizeId: event.target.value,
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <BarcodePrinter
+          sku='fake-hello'
+          labelSizeId={this.state.labelSizeId}
+          name='Red Shirt'
+          price='$99.99'
+        />
+        <div className="no-print">
+          <select onChange={this.handleSelect}>
+            <option value="201">201</option>
+            <option value="203">203</option>
+          </select>
+          <input type="button" onClick={window.print} value="print!" />
+        </div>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(
+  <App></App>,
+  document.getElementById('root'));
