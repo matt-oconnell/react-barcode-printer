@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Barcode from './ReactBarcode';
 import './BarcodePrinter.css';
 
-const labelSizes = {
+export const labelSizes = {
   '201': { // 1.1 x 3.5
-    height: 31,
+    height: 28,
   },
   '204': { // .66 x 2.1
     height: 24,
