@@ -23,7 +23,7 @@ class BarcodePrinter extends Component {
     };
 
     return (
-      <div className="barcode-wrapper" style={wrapperStyle}>
+      <div style={wrapperStyle}>
         <Barcode svgStyles={svgStyle} value={this.props.sku} height={50} />
       </div>
     );
