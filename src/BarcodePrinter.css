@@ -1,3 +1,16 @@
 body {
   margin: 0;
 }
+
+.barcode-printer .barcode-info {
+  width: 100%;
+}
+
+.barcode-printer .barcode-info span {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

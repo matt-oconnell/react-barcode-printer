@@ -4,9 +4,13 @@ import Barcode from './ReactBarcode';
 import './BarcodePrinter.css';
 
 const labelSizes = {
-  201: {
-    width: '3.5in',
-    height: '50',
+  '201': {
+    width: '4.5in',
+    height: 50,
+  },
+  '203': {
+    width: '2.5in',
+    height: 20,
   },
 }
 
@@ -23,8 +27,12 @@ class BarcodePrinter extends Component {
     };
 
     return (
-      <div style={wrapperStyle}>
-        <Barcode svgStyles={svgStyle} value={this.props.sku} height={50} />
+      <div className="barcode-printer" style={wrapperStyle}>
+        <div className="barcode-info">
+          <span>{this.props.name}</span>
+          <span>{this.props.price}</span>
+        </div>
+        <Barcode svgStyles={svgStyle} value={this.props.sku} height={labelSizes[this.props.labelSizeId].height} margin={0} />
       </div>
     );
   }
@@ -32,7 +40,9 @@ class BarcodePrinter extends Component {
 
 BarcodePrinter.propTypes = {
   sku: PropTypes.string.isRequired,
-  labelSizeId: PropTypes.number.isRequired,
+  labelSizeId: PropTypes.oneOf(Object.keys(labelSizes)).isRequired,
+  price: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default BarcodePrinter;
