@@ -21,15 +21,16 @@ class App extends Component {
     return (
       <div>
         <BarcodePrinter
-          sku='fake-hello'
+          sku='11562'
           labelSizeId={this.state.labelSizeId}
           name='Red Shirt'
           price='$99.99'
+          size='XXL'
         />
         <div className="no-print">
           <select onChange={this.handleSelect}>
             <option value="201">201</option>
-            <option value="203">203</option>
+            <option value="204">204</option>
           </select>
           <input type="button" onClick={window.print} value="print!" />
         </div>

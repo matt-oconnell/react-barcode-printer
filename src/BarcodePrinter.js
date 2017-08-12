@@ -5,14 +5,12 @@ import './BarcodePrinter.css';
 
 const labelSizes = {
   '201': {
-    width: '4.5in',
-    height: 47,
+    height: 31,
   },
-  '203': {
-    width: '2.5in',
-    height: 20,
+  '204': {
+    height: 24,
   },
-}
+};
 
 const svgStyle = {
   width: '100%',
@@ -21,23 +19,21 @@ const svgStyle = {
 
 class BarcodePrinter extends Component {
   render() {
-    const wrapperStyle = {
-      width: labelSizes[this.props.labelSizeId].width,
-      height: 'auto'
-    };
-
+    const { labelSizeId, size, name, price, sku } = this.props;
+    const { height } = labelSizes[labelSizeId];
     return (
-      <div className="barcode-printer" style={wrapperStyle}>
+      <div className={'barcode-printer size-' + labelSizeId}>
         <div className="barcode-info">
-          <span>{this.props.name}</span>
-          <span>{this.props.price}</span>
+          <span>{name} [{size}]</span>
+          <span>{price}</span>
         </div>
         <Barcode
           svgStyles={svgStyle}
-          value={this.props.sku}
-          height={labelSizes[this.props.labelSizeId].height}
+          value={sku}
+          height={height}
           margin={0}
-          fontSize={12}
+          marginTop={0}
+          fontSize={7}
         />
       </div>
     );
@@ -49,6 +45,7 @@ BarcodePrinter.propTypes = {
   labelSizeId: PropTypes.oneOf(Object.keys(labelSizes)).isRequired,
   price: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  size: PropTypes.string,
 };
 
 export default BarcodePrinter;

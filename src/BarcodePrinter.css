@@ -2,30 +2,44 @@ body {
   margin: 0;
 }
 
-.barcode-printer {
-  font-family: monospace;
-  /* display: none; */
-}
-
 @media print {
-  /* .barcode-printer {
-    display: block;
-  } */
-
   .no-print {
     display: none;
   }
 }
 
+.barcode-printer {
+  font-family: monospace;
+}
+
 .barcode-printer .barcode-info {
   width: 100%;
+  margin-bottom: 5px;
 }
 
 .barcode-printer .barcode-info span {
   display: inline-block;
   width: 50%;
-  text-align: center;
+  text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.barcode-printer .barcode-info span:last-child {
+  text-align: right;
+}
+
+.barcode-printer.size-201 {
+  width: 4.5in;
+  margin: 0 30px;
+  font-size: 15px;
+  padding-top: 10px;
+}
+
+.barcode-printer.size-204 {
+  width: 2.5in;
+  margin: 0 20px;
+  font-size: 10px;
+  padding-top: 6px;
 }
