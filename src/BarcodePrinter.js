@@ -4,10 +4,10 @@ import Barcode from './ReactBarcode';
 import './BarcodePrinter.css';
 
 const labelSizes = {
-  '201': {
+  '201': { // 1.1 x 3.5
     height: 31,
   },
-  '204': {
+  '204': { // .66 x 2.1
     height: 24,
   },
 };
