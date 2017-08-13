@@ -6,6 +6,10 @@ body {
   .no-print {
     display: none;
   }
+
+  @page {
+    size: 200px 200px
+  }
 }
 
 .barcode-printer {
@@ -14,16 +18,22 @@ body {
 
 .barcode-printer .barcode-info {
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: -4px;
 }
 
-.barcode-printer .barcode-info span {
+.barcode-printer .sku {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: -5px;
+}
+
+.barcode-printer .barcode-info > span {
   display: inline-block;
   width: 50%;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .barcode-printer .barcode-info span:last-child {
@@ -31,13 +41,41 @@ body {
 }
 
 .barcode-printer.size-201 {
-  width: 4in;
+  width: 384px;
   font-size: 16px;
-  padding: 17px 50px 0;
+  padding: 14px 50px 0;
+}
+
+.barcode-printer.size-201 svg {
+  width: 244px;
+  margin: 12px 70px;
+  height: 70px;
+}
+
+.barcode-printer.size-201 svg rect {
+  height: 70px;
+}
+
+.barcode-printer.size-201 svg g {
+  transform: translate(0, -32px);
 }
 
 .barcode-printer.size-204 {
-  width: 2.5in;
-  padding: 5px 20px 0;
+  width: 240px;
+  padding: 8px 20px 0;
   font-size: 12px;
+}
+
+.barcode-printer.size-204 svg {
+  width: 200px;
+  margin: 8px 20px;
+  height: 35px;
+}
+
+.barcode-printer.size-204 svg rect {
+  height: 65px;
+}
+
+.barcode-printer.size-204 svg g {
+  transform: translate(0, -12px);
 }

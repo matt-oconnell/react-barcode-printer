@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import BarcodePrinter from './BarcodePrinter';
+import './normalize.css';
 
 class App extends Component {
   constructor(props) {
@@ -21,11 +22,12 @@ class App extends Component {
     return (
       <div>
         <BarcodePrinter
-          sku='11562'
+          sku='123456'
+          barcode='123456'
           labelSizeId={this.state.labelSizeId}
-          name='Red Shirt'
-          price='$99.99'
-          size='XXL'
+          name='Blouse'
+          price='$99,000,000.99'
+          size='XS'
         />
         <div className="no-print">
           <select onChange={this.handleSelect}>

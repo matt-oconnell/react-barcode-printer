@@ -8,33 +8,29 @@ export const labelSizes = {
     height: 28,
   },
   '204': { // .66 x 2.1
-    height: 24,
+    height: 34,
   },
-};
-
-const svgStyle = {
-  width: '100%',
-  height: 'auto',
 };
 
 class BarcodePrinter extends Component {
   render() {
-    const { labelSizeId, size, name, price, sku } = this.props;
+    const { labelSizeId, size, name, price, sku, barcode } = this.props;
     const { height } = labelSizes[labelSizeId];
     return (
       <div className={'barcode-printer size-' + labelSizeId}>
         <div className="barcode-info">
-          <span>{name} [{size}]</span>
+          <span>{name}  {size && <span>[{size}]</span> }</span>
           <span>{price}</span>
         </div>
         <Barcode
-          svgStyles={svgStyle}
-          value={sku}
+          value={barcode}
           height={height}
           margin={0}
           marginTop={0}
-          fontSize={7}
+          displayValue={false}
+          ref = {el => this.barcode = el}
         />
+        <span className="sku">{sku}</span>
       </div>
     );
   }
@@ -42,8 +38,9 @@ class BarcodePrinter extends Component {
 
 BarcodePrinter.propTypes = {
   sku: PropTypes.string.isRequired,
+  barcode: PropTypes.string.isRequired,
   labelSizeId: PropTypes.oneOf(Object.keys(labelSizes)).isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired, 
   name: PropTypes.string.isRequired,
   size: PropTypes.string,
 };

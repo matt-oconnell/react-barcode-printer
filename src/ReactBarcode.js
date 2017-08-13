@@ -1,6 +1,6 @@
 /*
   note: this was pulled from https://github.com/kciter/react-barcode
-  added ability to pass in styles for SVG
+  added ability to disable aspectRatio on SVG
 */
 
 var React = require('react');
@@ -74,7 +74,7 @@ var Barcode = createClass({
   render: function() {
     if (this.props.renderer === 'svg') {
       return (
-        <svg ref="renderElement" style={this.props.svgStyles} />
+        <svg ref="renderElement" preserveAspectRatio="none" style={this.props.svgStyles} />
       );
     } else if (this.props.renderer === 'canvas') {
       return (
