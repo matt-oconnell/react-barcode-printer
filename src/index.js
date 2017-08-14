@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      labelSizeId: '201',
+      labelSizeId: '204',
     }
     this.handleSelect = this.handleSelect.bind(this);
   }
@@ -32,7 +32,7 @@ class App extends Component {
         <div className="no-print">
           <select onChange={this.handleSelect}>
             <option value="201">201</option>
-            <option value="204">204</option>
+            <option value="204" selected>204</option>
           </select>
           <input type="button" onClick={window.print} value="print!" />
         </div>

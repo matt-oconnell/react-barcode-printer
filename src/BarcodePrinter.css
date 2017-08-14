@@ -1,14 +1,39 @@
-body {
-  margin: 0;
-}
+/*
+  From what I can tell, @page won't work consistently with Chrome.
+  Seems like these Brother printer settings overwrite anything set in @page
+
+  Default settings on ios are portrait mode
+  Default on desktop are landscape
+*/
 
 @media print {
   .no-print {
     display: none;
   }
 
+  body {
+    margin: 0 !important;
+  }
+
+  .ios {
+    transform: rotate(90deg);
+    position: absolute;
+  }
+
+  /* chrome mobile 201 */
+  .barcode-printer.size-201.ios {
+    left: -160px;
+    top: 160px;
+  }
+
+  /* chrome mobile 204 */
+  .barcode-printer.size-204.ios {
+    left: -100px;
+    top: 87px;
+  }
+
   @page {
-    size: 200px 200px
+    size: A4 landscape;
   }
 }
 
@@ -40,10 +65,11 @@ body {
   text-align: right;
 }
 
+/* size-201 (Bigger) */
 .barcode-printer.size-201 {
-  width: 384px;
+  width: 380px;
   font-size: 16px;
-  padding: 14px 50px 0;
+  padding: 14px 46px 0;
 }
 
 .barcode-printer.size-201 svg {
@@ -60,6 +86,7 @@ body {
   transform: translate(0, -32px);
 }
 
+/* size-204 (Smaller) */
 .barcode-printer.size-204 {
   width: 240px;
   padding: 8px 20px 0;

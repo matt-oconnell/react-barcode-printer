@@ -3605,6 +3605,10 @@ js-yaml@~3.7.0:
     argparse "^1.0.7"
     esprima "^2.6.0"
 
+jsbarcode@~3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/jsbarcode/-/jsbarcode-3.4.0.tgz#e32882022cdffb2ab214c953fc129334b2c86d8c"
+
 jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
@@ -4983,6 +4987,12 @@ react:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "^15.5.10"
+
+react-barcode@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-barcode/-/react-barcode-1.2.0.tgz#33e8b080ac962e14e16a82bd0d514d710302bd73"
+  dependencies:
+    jsbarcode "~3.4.0"
 
 react-dev-utils@^3.1.0:
   version "3.1.1"
