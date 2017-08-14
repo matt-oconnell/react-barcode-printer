@@ -12,7 +12,7 @@ export const labelSizes = {
   },
 };
 
-var isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
 class BarcodePrinter extends Component {
   render() {
@@ -21,7 +21,7 @@ class BarcodePrinter extends Component {
     const iosClass = isIos ? ' ios' : '';
     return (
       <div className={'barcode-printer size-' + labelSizeId + iosClass}>
-        <div className="barcode-info">
+        <div className='barcode-info'>
           <span>{name}  {size && <span>[{size}]</span> }</span>
           <span>{price}</span>
         </div>
@@ -31,9 +31,8 @@ class BarcodePrinter extends Component {
           margin={0}
           marginTop={0}
           displayValue={false}
-          ref = {el => this.barcode = el}
         />
-        <span className="sku">{sku}</span>
+        <span className='sku'>{sku}</span>
       </div>
     );
   }

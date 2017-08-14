@@ -7,6 +7,10 @@
 */
 
 @media print {
+  /*
+    Will need to add this to other elements 
+    Should be easy if we append this component to top level element like body
+  */
   .no-print {
     display: none;
   }
@@ -14,10 +18,13 @@
   body {
     margin: 0 !important;
   }
-
+  
   .ios {
     transform: rotate(90deg);
-    position: absolute;
+  }
+  
+  .barcode-printer {
+    display: block !important;
   }
 
   /* chrome mobile 201 */
@@ -31,13 +38,10 @@
     left: -100px;
     top: 87px;
   }
-
-  @page {
-    size: A4 landscape;
-  }
 }
 
 .barcode-printer {
+  display: none;
   font-family: monospace;
 }
 

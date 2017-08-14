@@ -7,15 +7,20 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      labelSizeId: '204',
+      labelSizeId: '201',
     }
     this.handleSelect = this.handleSelect.bind(this);
+    this.print = this.print.bind(this);
   }
 
   handleSelect(event) {
     this.setState({
       labelSizeId: event.target.value,
     });
+  }
+
+  print() {
+    window.print();
   }
 
   render() {
@@ -30,11 +35,11 @@ class App extends Component {
           size='XS'
         />
         <div className="no-print">
-          <select onChange={this.handleSelect}>
+          <select style={{marginTop: '200px'}} onChange={this.handleSelect}>
             <option value="201">201</option>
-            <option value="204" selected>204</option>
+            <option value="204">204</option>
           </select>
-          <input type="button" onClick={window.print} value="print!" />
+          <input type="button" style={{marginTop: '200px'}} onClick={this.print} value="print!" />
         </div>
       </div>
     )
